@@ -1,0 +1,41 @@
+.auth{
+    background: linear-gradient(135deg,rgb(29, 47, 44),rgb(68, 148, 131));
+    position: fixed;
+    width: 100%;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+}
+.authIcon{
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%, -25%);
+}
+.authForm{
+    position: absolute;
+    width: 100%;
+    top: 40%;
+    display: flex;
+    justify-content: center;
+}
+.input{
+    color: #fff;
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    
+}
+.input:focus{
+    color: #fff;
+    background: none;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 1);
+
+}
+.largeIcon{
+    transform: scale(5);
+    color: #fff;
+}

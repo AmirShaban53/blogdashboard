@@ -1,0 +1,8 @@
+.header{
+    position: absolute;
+    background: rgb(240, 240, 240);
+    width: 100% !important;
+    height: 3rem;
+    top: 0;
+    left: 0;
+  }
