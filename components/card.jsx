@@ -1,5 +1,5 @@
-const card = () => {
-    return <div className='card shadow-sm rounded'>
+const Card = () => {
+    return <div className='card shadow-sm rounded '>
         <div className="card-body">
 
         this is the card component!
@@ -7,4 +7,4 @@ const card = () => {
     </div>
 }
 
-export default card;
+export default Card;

@@ -1,4 +1,4 @@
-const PostCard = () => {
+const PostCard = ({title}) => {
     return(
         <div className='card shadow-sm my-4'>
             <div className='position-relative'>
@@ -7,7 +7,7 @@ const PostCard = () => {
             </div>
             <div className="card-body">
                 <p className="card-title fw-bolder fs-3">
-                    BLOG POST TITLE
+                    {title}
                 </p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem officiis ex reiciendis nam quisquam. Magni. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis error cupiditate, id atque explicabo a?</p>
                 <div>

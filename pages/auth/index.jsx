@@ -2,7 +2,7 @@ import styles from '../../styles/auth.module.css';
 
 import Login from '../../components/login';
 import Register from '../../components/register';
-import { AccountCircle } from '@material-ui/icons';
+import { AccountCircle, ChevronLeft } from '@material-ui/icons';
 
 import Link from 'next/link';
 
@@ -15,10 +15,10 @@ const Auth = () => {
             <div className='text-light container d-flex align-items-center justify-content-between py-1'>
                 <div>
                     {/* <h1>HELLO!</h1> */}
-                    <p> <Link href='/'>return to home</Link> </p>
+                    <p> <ChevronLeft/> <Link href='/'>return to home</Link> </p>
                 </div>
                 <div className='d-flex align-items-center'>
-                    {login && <p className='mt-3 me-2 '>Not a member?</p>}
+                    {login ? <p className='mt-3 me-2 '>Not a member?</p>:<p className='mt-3 me-2 '>already a member?</p>}
                     {
                         login?
                         <label 
