@@ -18,7 +18,6 @@ const posts = () => {
     }
     useEffect(() => {
         getPost();
-
     }, [])
     return <>
         <div>
@@ -28,7 +27,7 @@ const posts = () => {
             <div>
                 {
                     posts.map(post=>{
-                        return <PostCard key={post.id} {...post}/>
+                        return <PostCard key={post.id} {...post} getPost={getPost}/>
                     })
                 }
             </div>

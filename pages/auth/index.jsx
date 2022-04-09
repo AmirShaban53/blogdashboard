@@ -14,8 +14,12 @@ const Auth = () => {
         <div className={styles.auth}>
             <div className='text-light container d-flex align-items-center justify-content-between py-1'>
                 <div>
-                    {/* <h1>HELLO!</h1> */}
-                    <p> <ChevronLeft/> <Link href='/'>return to home</Link> </p>
+                    <Link href='/'>
+                        <div className='d-flex'>
+                        <ChevronLeft/>
+                        <p className='d-none d-sm-inline'>return to home</p>
+                        </div>
+                    </Link>
                 </div>
                 <div className='d-flex align-items-center'>
                     {login ? <p className='mt-3 me-2 '>Not a member?</p>:<p className='mt-3 me-2 '>already a member?</p>}

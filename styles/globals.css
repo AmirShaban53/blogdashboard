@@ -25,11 +25,15 @@ a {
 }
 .layout{
   flex: 80%;
-  padding: 5rem 10rem;
+  padding-top: 5rem;
   overflow-y: scroll;
   position: relative;
 }
 
 .italic{
   font-weight: lighter;
+}
+
+.cursor{
+  cursor: pointer;
 }

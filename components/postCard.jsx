@@ -1,4 +1,17 @@
-const PostCard = ({title}) => {
+import axios from "axios";
+
+const PostCard = ({id,title, description, getPost}) => {
+    const handleDelete = async() => {
+        try {
+            const URL = process.env.NEXT_PUBLIC_URL;
+            const token = JSON.parse(sessionStorage.getItem('next_public_token'));
+            const headers = {'authorization': `bearer ${token}`};
+            await axios.delete(`${URL}/posts/${id}`, {headers: headers});
+            getPost();
+        } catch (error) {
+            console.log(error);
+        }
+    }
     return(
         <div className='card shadow-sm my-4'>
             <div className='position-relative'>
@@ -9,10 +22,13 @@ const PostCard = ({title}) => {
                 <p className="card-title fw-bolder fs-3">
                     {title}
                 </p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem officiis ex reiciendis nam quisquam. Magni. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis error cupiditate, id atque explicabo a?</p>
+                <p>{description}</p>
                 <div>
                 <p className="btn btn-light">read more</p>
-                <p className="btn btn-danger">delete</p>
+                <button
+                    className="btn btn-danger"
+                    onClick={()=>handleDelete()}
+                >delete</button>
 
                 </div>
             </div>
