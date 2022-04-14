@@ -15,7 +15,7 @@ const Auth = () => {
             <div className='text-light container d-flex align-items-center justify-content-between py-1'>
                 <div>
                     <Link href='/'>
-                        <div className='d-flex'>
+                        <div className='d-flex cursor'>
                         <ChevronLeft/>
                         <p className='d-none d-sm-inline'>return to home</p>
                         </div>

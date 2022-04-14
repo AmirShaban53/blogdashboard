@@ -10,7 +10,7 @@ const Header = () => {
                 </div>
                 <div>
                     <WbCloudy className='mx-2'/>
-                    <NotificationsOutlined className='mx-2'/>
+                    <NotificationsOutlined className='mx-2 note'/>
                     <FaceRounded className='mx-2'/>
                 </div>
             </div>

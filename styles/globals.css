@@ -37,3 +37,17 @@ a {
 .cursor{
   cursor: pointer;
 }
+
+.note{
+  position: relative;
+}
+.note::before{
+  content: " ";
+  width: 5rem;
+  height: 5rem;
+  /* border-radius: 50%; */
+  /* position: absolute;
+  top: 0;
+  right: 0; */
+  background: red;
+}

@@ -3,18 +3,16 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 const URL = process.env.NEXT_PUBLIC_URL;
+
 const posts = () => {
     const [posts, setPosts] = useState([]);
 
     const getPost = async() => {
         try {
             const posts = await axios.get(`${URL}/posts`);
-            if(posts.data){
-                setPosts(posts.data);
-            }
-        } catch (error) {
-            console.log(error);
-        }
+            if(posts.data)setPosts(posts.data);
+        } 
+        catch (error) {console.log(error);}
     }
     useEffect(() => {
         getPost();
@@ -26,9 +24,9 @@ const posts = () => {
             </div>
             <div>
                 {
-                    posts.map(post=>{
-                        return <PostCard key={post.id} {...post} getPost={getPost}/>
-                    })
+                posts.map(post=>{
+                    return <PostCard key={post.id} {...post} getPost={getPost}/>
+                })
                 }
             </div>
         </div>

@@ -1,24 +1,29 @@
 import  {Dashboard, Subject, FolderOpenOutlined, Settings, PowerSettingsNew} from '@material-ui/icons';
 import classes from '../styles/navbar.module.css';
-import '../styles/navbar.module.css';
+// import '../styles/navbar.module.css';
 import Link from 'next/link';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 const Navbar = () => {
     const [height, setHeight] = useState(0);
     const style = {top: `${height}px`};
-    const navIndicator = (e) => {setHeight(e);}
+    const navIndicator = (e) => {
+        setHeight(e.currentTarget.offsetTop);
+    }
     return (
         <nav className={classes.navbar}>
         <div className={classes.container}>
             <div className="nav-brand p-3">
-                <h1>H<span className='d-none d-sm-inline'>ELLO!</span></h1>
+                <Link href='/'>
+                    <h1>H<span className='d-none d-sm-inline'>ELLO!</span></h1>
+                </Link>
             </div>
             <div className='container-fluid p-0'>
                 <ul className={`${classes.navList} container-fluid w-100 position-relative`}>
                     <li 
                         className={`${classes.navItem }`}
-                        onClick={(e)=>navIndicator(e.currentTarget.offsetTop)}
+                        onClick={(e)=>navIndicator(e)}
                     >
                         <Link  href='/'>
                             <div className='w-100 p-2 text-end text-sm-start'>
@@ -29,7 +34,7 @@ const Navbar = () => {
                     </li>
                     <li 
                         className={classes.navItem}
-                        onClick={(e)=>navIndicator(e.currentTarget.offsetTop)}
+                        onClick={(e)=>navIndicator(e)}
                     >
                         <Link  href='/compose'>
                             <div className=' w-100 p-2 text-end text-sm-start'>
@@ -40,7 +45,7 @@ const Navbar = () => {
                     </li>
                     <li 
                         className={classes.navItem} 
-                        onClick={(e)=>navIndicator(e.currentTarget.offsetTop)}
+                        onClick={(e)=>navIndicator(e)}
                     >
                         <Link  href='/posts'>
                             <div className='w-100 p-2 text-end text-sm-start'>
@@ -51,7 +56,7 @@ const Navbar = () => {
                     </li>
                     <li 
                         className={classes.navItem}
-                        onClick={(e)=>navIndicator(e.currentTarget.offsetTop)}
+                        onClick={(e)=>navIndicator(e)}
                     >
                         <Link  href='/settings'>
                             <div className='w-100 p-2 text-end text-sm-start'>

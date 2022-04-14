@@ -1,8 +1,7 @@
-const Card = () => {
-    return <div className='card shadow-sm rounded '>
+const Card = (props) => {
+    return <div className='card shadow-sm rounded h-100'>
         <div className="card-body">
-
-        this is the card component!
+            {props.children}
         </div>
     </div>
 }
