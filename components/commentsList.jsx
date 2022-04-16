@@ -1,32 +1,18 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios'
+import {useEffect, useContext } from 'react';
+import {Context} from '../AppContext';
 import { AccountCircle } from '@material-ui/icons';
+import { useRouter } from 'next/router';
 
-const URL = process.env.NEXT_PUBLIC_URL;
 
 const CommentsList = () => {
-    const [comments, setComments] = useState([]);
+    const router = useRouter();
+    const {comments, getComments} = useContext(Context);
+    const {posts, getPosts} = useContext(Context);
 
-    const getComments = async() => {
-      try {
-        const posts = await axios.get(`${URL}/posts`);
-        
-        if(posts.data.length > 0){
-          const index = Math.floor(Math.random()* posts.data.length);
-          const post = posts.data[index];
-          const commentsJSON = await axios.get(`${URL}/posts/${post.id}/comment`);
-          
-          if(commentsJSON.data)setComments(commentsJSON.data);
-          
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  
+
     useEffect(() => {
         getComments();
-    }, [])
+    }, [router.pathname])
 
     return(
         <div className="row my-5">

@@ -1,31 +1,19 @@
 import PostCard from "../../components/postCard";
-import axios from "axios";
-import { useState, useEffect } from "react";
-
-const URL = process.env.NEXT_PUBLIC_URL;
+import {Context} from "../../AppContext";
+import {useEffect , useContext } from "react";
 
 const posts = () => {
-    const [posts, setPosts] = useState([]);
-
-    const getPost = async() => {
-        try {
-            const posts = await axios.get(`${URL}/posts`);
-            if(posts.data)setPosts(posts.data);
-        } 
-        catch (error) {console.log(error);}
-    }
+    const {posts, getPosts} = useContext(Context);
+    
     useEffect(() => {
-        getPost();
+        getPosts();
     }, [])
     return <>
         <div>
-            <div className="title display-4">
-                POSTS.
-            </div>
+            <h3 className="title display-4">POSTS.</h3>
             <div>
-                {
-                posts.map(post=>{
-                    return <PostCard key={post.id} {...post} getPost={getPost}/>
+                {posts.map(post=>{
+                    return <PostCard key={post.id} {...post}/>
                 })
                 }
             </div>

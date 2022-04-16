@@ -51,3 +51,15 @@ a {
   right: 0; */
   background: red;
 }
+
+.message{
+  position: fixed;
+  z-index: 100;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: ease 0.5s;
+}
+.trigger{
+  top: 2%;
+}

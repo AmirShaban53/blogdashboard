@@ -1,17 +1,31 @@
 import classes from '../styles/dasboard.module.css'
 import CommentsList from '../components/commentsList'
+import Message from '../components/message';
 import { useRouter } from 'next/router'
+import { useEffect, useState, useContext } from 'react';
+
+import { Context } from '../AppContext';
 
 export default function Home() {
   const router =  useRouter();
+  const [active, setActive] = useState(false);
+  const {alertMessage, getPosts, getComments} = useContext(Context)
+  
   const viewPosts = () => {
     router.push('/posts');
   }
+
+  
+
+  // useEffect(() => {
+  //   getPosts();
+  //   getComments();
+  // }, []);
   return (
     <>
       <main>
         <div className={classes.title}>
-          <h1 className='display-1 fw-bolder'>Hello,</h1>
+          <h1 className='display-1 fw-bolder cursor' onClick={()=>alertMessage('dasdsad','alert-primary')}>Hello,</h1>
           <h1 className="display-3">Amir Budda.</h1>
         </div>
         <div className="">
@@ -49,6 +63,7 @@ export default function Home() {
           </div>
         </div>
       </main>
+      <Message/>
     </>
   )
 }

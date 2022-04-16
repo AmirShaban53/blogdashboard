@@ -1,13 +1,16 @@
 import axios from "axios";
+import { Context } from "../AppContext";
+import { useContext } from "react";
 
-const PostCard = ({id,title, description, getPost}) => {
+const PostCard = ({id,title, description}) => {
+    const {getPosts} = useContext(Context);
     const handleDelete = async() => {
         try {
             const URL = process.env.NEXT_PUBLIC_URL;
             const token = JSON.parse(sessionStorage.getItem('next_public_token'));
             const headers = {'authorization': `bearer ${token}`};
             await axios.delete(`${URL}/posts/${id}`, {headers: headers});
-            getPost();
+            getPosts();
         } catch (error) {
             console.log(error);
         }

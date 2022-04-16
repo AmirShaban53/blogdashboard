@@ -1,11 +1,15 @@
-import '../styles/globals.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import { useEffect, useState, useContext } from 'react';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../styles/globals.css';
 
 import Navbar from '../components/navbar';
 import Layout from '../components/layout';
+import {AppContext} from '../AppContext';
+import { Context } from '../AppContext';
 
-import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+
 
 function MyApp({ Component, pageProps }) {
   const Router = useRouter();
@@ -16,19 +20,20 @@ function MyApp({ Component, pageProps }) {
     }
   }
 
+  
   useEffect(() => {
     getLogged();
   }, [Router.pathname])
 
   return (
-    <>
-      <div className='app'>
-        <Navbar/>
+    <div className='app'>
+      <Navbar/>
         <Layout>
-          <Component {...pageProps} />
+          <AppContext>
+            <Component {...pageProps} />
+          </AppContext>
         </Layout>
-      </div>
-    </>
+    </div>
   )
 }
 

@@ -1,11 +1,15 @@
 import axios  from "axios";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { Context } from "../AppContext";
 import {CKEditor} from "@ckeditor/ckeditor5-react";
+import Message from "./message";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import { useRouter } from "next/router";
 
 const PostForm = () => {
+    const {alertMessage} = useContext(Context);
     const [post, setPost] = useState({});
-
+    const router = useRouter();
     const handleChanges = (changes) => {
         setPost(prevState => {return{...prevState, ...changes}})
     }
@@ -18,13 +22,11 @@ const PostForm = () => {
             if(token){
                 const headers = {'authorization': `bearer ${token}`}
                 await axios.post(`${URL}/posts`, post , {headers: headers});
-                console.log('blog post created');
+                router.push('/');
+                alertMessage('new post created','alert-success')
             }
-            else{
-                alert('you aint got shit on me');
-            }
-            
         } catch (error) {
+            alertMessage('failed to create post','alert-danger')
             console.log(error);
         }
     }
@@ -32,13 +34,12 @@ const PostForm = () => {
     return (
         <>
             <form className='container my-5 fw-bolder' onSubmit={e=>submitForm(e)}>
-
                 <div className="mb-3">
                     <label htmlFor="" className="form-label">title:</label>
                     <input 
                         type="text" 
-                        className="form-control" 
                         placeholder='title'
+                        className="form-control" 
                         onChange={e=>handleChanges({title: e.target.value})}
                     />
                 </div>
@@ -49,15 +50,14 @@ const PostForm = () => {
                         className="form-control" 
                         placeholder='description'
                         onChange={e=>handleChanges({description: e.target.value})}
-
                     />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="" className="form-label">author:</label>
                     <input 
                         type="text" 
-                        className="form-control" 
                         placeholder='author'
+                        className="form-control" 
                         onChange={e=>handleChanges({author: e.target.value})}
                     />
                 </div>
@@ -71,14 +71,14 @@ const PostForm = () => {
                         editor={ClassicEditor}
                         data="write new post"
                         onChange={(e, editor)=>{handleChanges({content: editor.getData()})}}
-                    />  
+                    />
                 </div>
                 <div className="my-4 text-end">
                     <button className='btn btn-reject mx-2 text-muted'>cancel</button>
                     <button className='btn btn-success mx-2' type='submit'>submit</button>
-
                 </div>
             </form>
+            <Message/>
         </>
     )
 }

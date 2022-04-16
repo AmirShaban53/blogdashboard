@@ -1,12 +1,17 @@
 import styles from '../styles/auth.module.css';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
+import Message from './message';
+
+import { Context } from '../AppContext';
 
 const URL = process.env.NEXT_PUBLIC_URL;
 const LOCAL_TOKEN_KEY = "next_public_token";
 const Login = () => {
+    // const [active, setActive] = useState(false);
     const [loginForm, setLoginForm] = useState({});
+    const {alertMessage} = useContext(Context);
     const router = useRouter();
 
     const handleChanges = (changes) => {
@@ -17,10 +22,14 @@ const Login = () => {
         try {
             e.preventDefault();
             const log = await axios.post(`${URL}/auth/login`, loginForm);
-            if(log.data.token) sessionStorage.setItem(LOCAL_TOKEN_KEY, JSON.stringify(log.data.token));
+            if(log.data.token) {
+                sessionStorage.setItem(LOCAL_TOKEN_KEY, JSON.stringify(log.data.token));
+                alertMessage('you successfully logged in', 'alert-success');
+            }
             router.push('/');
         } catch (error) {
             console.log(error);
+            alertMessage('failed to logged in', 'alert-danger');
         }
     }
     return(
@@ -51,6 +60,7 @@ const Login = () => {
                     </div>
                 </form>
             </div>
+            <Message/>
         </div>
     )
 }

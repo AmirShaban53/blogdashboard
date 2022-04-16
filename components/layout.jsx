@@ -6,7 +6,6 @@ const layout = (props) => {
             <div className="row">
                 <div className="col-md-10 mx-auto  p-2">
                     {props.children}
-
                 </div>
             </div>
         </div>
