@@ -1,0 +1,23 @@
+.userCard{
+    position: relative;
+}
+.profile{
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    width: 10rem;
+    height: 10rem;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    border: 5px solid #fff;
+    z-index: 10;
+
+}
+.details{
+    position: absolute;
+    left: -5%;
+    top: 10%;
+    border-radius: 10px;
+    z-index: -1;
+    text-align: start;
+}

@@ -5,10 +5,9 @@ import '../styles/globals.css';
 
 import Navbar from '../components/navbar';
 import Layout from '../components/layout';
-import {AppContext} from '../AppContext';
-import { Context } from '../AppContext';
-
+import {AppContext, Context} from '../AppContext';
 import { useRouter } from 'next/router';
+import Message from '../components/message';
 
 
 function MyApp({ Component, pageProps }) {
@@ -30,7 +29,8 @@ function MyApp({ Component, pageProps }) {
       <Navbar/>
         <Layout>
           <AppContext>
-            <Component {...pageProps} />
+            <Component {...pageProps}/>
+            <Message/>
           </AppContext>
         </Layout>
     </div>

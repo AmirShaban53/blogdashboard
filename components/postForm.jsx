@@ -2,7 +2,6 @@ import axios  from "axios";
 import { useState, useContext } from "react";
 import { Context } from "../AppContext";
 import {CKEditor} from "@ckeditor/ckeditor5-react";
-import Message from "./message";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { useRouter } from "next/router";
 
@@ -78,7 +77,6 @@ const PostForm = () => {
                     <button className='btn btn-success mx-2' type='submit'>submit</button>
                 </div>
             </form>
-            <Message/>
         </>
     )
 }

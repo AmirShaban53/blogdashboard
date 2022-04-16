@@ -1,13 +1,13 @@
 import {useEffect, useContext } from 'react';
-import {Context} from '../AppContext';
-import { AccountCircle } from '@material-ui/icons';
 import { useRouter } from 'next/router';
+
+import { AccountCircle } from '@material-ui/icons';
+import {Context} from '../AppContext';
 
 
 const CommentsList = () => {
     const router = useRouter();
     const {comments, getComments} = useContext(Context);
-    const {posts, getPosts} = useContext(Context);
 
 
     useEffect(() => {

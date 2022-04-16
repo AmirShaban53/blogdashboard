@@ -1,15 +1,14 @@
 import styles from '../styles/auth.module.css';
 import { useState, useContext } from 'react';
-import axios from 'axios';
 import { useRouter } from 'next/router';
-import Message from './message';
+import axios from 'axios';
 
 import { Context } from '../AppContext';
 
 const URL = process.env.NEXT_PUBLIC_URL;
 const LOCAL_TOKEN_KEY = "next_public_token";
+
 const Login = () => {
-    // const [active, setActive] = useState(false);
     const [loginForm, setLoginForm] = useState({});
     const {alertMessage} = useContext(Context);
     const router = useRouter();
@@ -60,7 +59,6 @@ const Login = () => {
                     </div>
                 </form>
             </div>
-            <Message/>
         </div>
     )
 }

@@ -1,10 +1,12 @@
 import styles from '../styles/auth.module.css';
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { Context } from '../AppContext';
 import { useRouter } from 'next/router';
 
 const URL = process.env.NEXT_PUBLIC_URL;
 const Register = () => {
+    const {alertMessage} = useContext(Context);
     const [registerForm, setRegisterForm] = useState({});
     const router = useRouter();
 
@@ -16,9 +18,11 @@ const Register = () => {
         try {
             e.preventDefault();
             await axios.post(`${URL}/auth/signup`, registerForm);
-            router.push('/');
+            alertMessage('your account was created, login', 'alert-info');
+            router.push('/auth');
             
         } catch (error) {
+            alertMessage('failed to create your account', 'alert-danger');
             console.log(error);
         }
 
@@ -59,7 +63,6 @@ const Register = () => {
                         <button className={`btn btn-light w-100 rounded-0`}>Sign up</button>
                     </div>
                 </form>
-
             </div>
         </div>
     )

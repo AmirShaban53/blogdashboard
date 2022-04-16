@@ -1,9 +1,7 @@
 import  {Dashboard, Subject, FolderOpenOutlined, Settings, PowerSettingsNew} from '@material-ui/icons';
 import classes from '../styles/navbar.module.css';
-// import '../styles/navbar.module.css';
 import Link from 'next/link';
 import { useState } from 'react';
-import { useRouter } from 'next/router';
 
 const Navbar = () => {
     const [height, setHeight] = useState(0);
@@ -73,7 +71,6 @@ const Navbar = () => {
                     <div className='d-flex cursor text-end text-sm-start'>
                         <PowerSettingsNew className="me-2"/>
                         <h5 className='d-none d-sm-inline'>logout</h5>
-
                     </div>
                 </Link>
             </div>
