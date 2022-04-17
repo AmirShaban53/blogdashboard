@@ -28,28 +28,32 @@ export default function Home() {
         <div className="">
           <h2>dashboard</h2>
           <div className="container-fluid">
-            <div className="row">
+            <div className="row ">
               <div className="col-lg-3">
                 <div className="card h-100 cursor shadow" onClick={()=>viewPosts()}>
-                  <div className="card-body">
-                    <div className='d-flex align-items-center my-3'>
-                      <p className='fs-1'>{posts.length}</p>
-                      <p className='fs-3 fst-italic fw-lighter h-100 ms-2'>posts.</p>
+                  <div className="card-body d-flex align-items-center justify-content-center">
+                    <div>
+                      <div className='d-flex align-items-center'>
+                        <p className='fs-1'>{posts.length}</p>
+                        <p className='fs-3 fst-italic fw-lighter ms-2'>posts.</p>
+                      </div>
+                      <p className='text-center'>view all</p>
+
                     </div>
-                    <p>view all</p>
                   </div>
                 </div>
               </div>
-              <div className="col-lg-8">
+              <div className="col-lg-9 ">
                 <div className="card shadow">
                   <div className="container p-0">
                     <div className="row">
                       <div className="col-md-7 p-4">
-                        <p className="fs-3">Lorem, ipsum dolor.</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, facere deleniti maxime vero eius possimus.</p>
+                        <h4 className="fs-3">Welcome to our control center!</h4>
+                        <p>This is where authors come to create, write and post insightful blogs for our users at:</p>
+                        <a href='#' className="fw-bolder">www.localhost:3001</a>
                       </div>
                     <div className="col-md-5">
-                      <img className="img-fluid" src="720.jpg" alt="" />
+                      <img className="img-fluid" src="pf2.jpg" alt="" />
                     </div>
                     </div>
                   </div>

@@ -9,7 +9,6 @@ const CommentsList = () => {
     const router = useRouter();
     const {comments, getComments} = useContext(Context);
 
-
     useEffect(() => {
         getComments();
     }, [router.pathname])

@@ -1,15 +1,15 @@
 import AuthorCard from "../../components/authorCard";
 import classes from '../../styles/setting.module.css';
-import Image from "next/image";
 
 import { useContext, useEffect } from "react";
 import { Context } from "../../AppContext";
 
 const settings = () => {
-    const {user, getUserData, posts} = useContext(Context);
+    const {user, getUserData, getPosts, getComments, posts} = useContext(Context);
 
     useEffect(() => {
         getUserData();
+        getPosts();
     }, []);
     return (
     <>
