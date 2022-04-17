@@ -1,32 +1,29 @@
 import classes from '../styles/dasboard.module.css'
 import CommentsList from '../components/commentsList'
-import Message from '../components/message';
 import { useRouter } from 'next/router'
-import { useEffect, useState, useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 import { Context } from '../AppContext';
 
 export default function Home() {
   const router =  useRouter();
-  const [active, setActive] = useState(false);
-  const {alertMessage, getPosts, getComments} = useContext(Context)
+  const {user, posts, getPosts, getUserData} = useContext(Context)
   
   const viewPosts = () => {
     router.push('/posts');
   }
 
-  
+  useEffect(() => {
+    getUserData();
+    getPosts();
+  }, []);
 
-  // useEffect(() => {
-  //   getPosts();
-  //   getComments();
-  // }, []);
   return (
     <>
       <main>
         <div className={classes.title}>
-          <h1 className='display-1 fw-bolder cursor' onClick={()=>alertMessage('dasdsad','alert-primary')}>Hello,</h1>
-          <h1 className="display-3">Amir Budda.</h1>
+          <h1 className='display-1 fw-bolder cursor'>Hello,</h1>
+          <h1 className="display-3">{user.username}</h1>
         </div>
         <div className="">
           <h2>dashboard</h2>
@@ -36,7 +33,7 @@ export default function Home() {
                 <div className="card h-100 cursor shadow" onClick={()=>viewPosts()}>
                   <div className="card-body">
                     <div className='d-flex align-items-center my-3'>
-                      <p className='fs-1'>81</p>
+                      <p className='fs-1'>{posts.length}</p>
                       <p className='fs-3 fst-italic fw-lighter h-100 ms-2'>posts.</p>
                     </div>
                     <p>view all</p>
@@ -63,7 +60,6 @@ export default function Home() {
           </div>
         </div>
       </main>
-      <Message/>
     </>
   )
 }

@@ -60,15 +60,15 @@ const PostForm = () => {
                         onChange={e=>handleChanges({author: e.target.value})}
                     />
                 </div>
-                <div className="mb-3">
+                {/* <div className="mb-3">
                     <label htmlFor="" className="form-label">banner image:</label>
                     <input type="file" className="form-control" placeholder='author'/>
-                </div>
+                </div> */}
                 <div className="mb-3">
                     <label className="form-label">content</label>
                     <CKEditor
                         editor={ClassicEditor}
-                        data="write new post"
+                        data=""
                         onChange={(e, editor)=>{handleChanges({content: editor.getData()})}}
                     />
                 </div>

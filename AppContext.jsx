@@ -1,4 +1,5 @@
 import { useState, useEffect, createContext} from "react";
+import JWT from "jsonwebtoken";
 import axios from "axios";
 
 const URL = process.env.NEXT_PUBLIC_URL;
@@ -11,6 +12,7 @@ export const AppContext = ({children}) => {
     const [active, setActive] = useState(false);
     const [message, setMessage] = useState('');
     const [bgColor, setBgcolor] = useState('');
+    const [user, setUser] = useState({});
     const [posts, setPosts] = useState([]);
     const [comments, setComments] = useState([]);
 
@@ -46,6 +48,18 @@ export const AppContext = ({children}) => {
         }
     }
 
+    const getUserData = () => {
+        try {
+            const token = JSON.parse(sessionStorage.getItem(LOCAL_TOKEN_KEY));
+            if(token){
+                const payload=  JWT.verify(token, process.env.NEXT_PUBLIC_JWT_KEY);
+                setUser({...payload});
+            }
+            
+        } catch (error) {
+            console.log(error);
+        }
+    }
     
     const contextValue = {
         posts,
@@ -53,8 +67,10 @@ export const AppContext = ({children}) => {
         message,
         bgColor,
         comments,
+        user,
         getPosts,
         getComments,
+        getUserData,
         alertMessage
     }
     return <Context.Provider value={contextValue}>{children}</Context.Provider>

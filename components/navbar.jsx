@@ -9,6 +9,9 @@ const Navbar = () => {
     const navIndicator = (e) => {
         setHeight(e.currentTarget.offsetTop);
     }
+    const logOut = () => {
+        sessionStorage.removeItem('next_public_token');
+    }
     return (
         <nav className={classes.navbar}>
         <div className={classes.container}>
@@ -68,7 +71,7 @@ const Navbar = () => {
             </div>
             <div className='d-flex align-items-center p-3'>
                 <Link href='/auth'>
-                    <div className='d-flex cursor text-end text-sm-start'>
+                    <div className='d-flex cursor text-end text-sm-start' onClick={()=>logOut()}>
                         <PowerSettingsNew className="me-2"/>
                         <h5 className='d-none d-sm-inline'>logout</h5>
                     </div>

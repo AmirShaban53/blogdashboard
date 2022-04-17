@@ -10,7 +10,7 @@ const LOCAL_TOKEN_KEY = "next_public_token";
 
 const Login = () => {
     const [loginForm, setLoginForm] = useState({});
-    const {alertMessage} = useContext(Context);
+    const {alertMessage, getUserData} = useContext(Context);
     const router = useRouter();
 
     const handleChanges = (changes) => {
@@ -24,6 +24,7 @@ const Login = () => {
             if(log.data.token) {
                 sessionStorage.setItem(LOCAL_TOKEN_KEY, JSON.stringify(log.data.token));
                 alertMessage('you successfully logged in', 'alert-success');
+                getUserData();
             }
             router.push('/');
         } catch (error) {
