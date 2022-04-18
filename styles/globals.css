@@ -63,3 +63,10 @@ a {
 .trigger{
   top: 2%;
 }
+.post-image{
+  display: flex;
+  max-height: 50vh;
+  overflow-y: hidden;
+  align-items: center;
+  justify-content: center;
+}

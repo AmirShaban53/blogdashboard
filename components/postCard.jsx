@@ -1,9 +1,10 @@
-import axios from "axios";
 import { Context } from "../AppContext";
 import { useContext } from "react";
+import axios from "axios";
 
 
-const PostCard = ({id,title, description}) => {
+const PostCard = ({id,title, description, image_URL}) => {
+    const URL = process.env.NEXT_PUBLIC_URL;
     const {getPosts, alertMessage} = useContext(Context);
     const handleDelete = async() => {
         try {
@@ -21,7 +22,9 @@ const PostCard = ({id,title, description}) => {
     return(
         <div className='card shadow-sm my-4'>
             <div className='position-relative'>
-            <img className="card-img-top" src="1080.webp" alt="" />
+                <div className="post-image">
+                    <img className="card-img-top" src={`${URL}/${image_URL}`} alt="" layout='fill'/>
+                </div>
             <div className="date bg-dark text-light position-absolute px-1 bottom-0 end-0">20/20/2222</div>
             </div>
             <div className="card-body">

@@ -19,8 +19,19 @@ const PostForm = () => {
             const token = JSON.parse(sessionStorage.getItem('next_public_token'));
             const URL = process.env.NEXT_PUBLIC_URL;
             if(token){
-                const headers = {'authorization': `bearer ${token}`}
-                await axios.post(`${URL}/posts`, post , {headers: headers});
+                const formData =  new FormData();
+                formData.append('title', post.title);
+                formData.append('image', post.image);
+                formData.append('author', post.author);
+                formData.append('content', post.content);
+                formData.append('description', post.description);
+
+                const headers = {
+                    'authorization': `bearer ${token}`,
+                    'Content-Type': 'multipart/form-data'
+                }
+
+                await axios.post(`${URL}/posts`,formData , {headers: headers});
                 router.push('/');
                 alertMessage('new post created','alert-success')
             }
@@ -60,10 +71,15 @@ const PostForm = () => {
                         onChange={e=>handleChanges({author: e.target.value})}
                     />
                 </div>
-                {/* <div className="mb-3">
+                <div className="mb-3">
                     <label htmlFor="" className="form-label">banner image:</label>
-                    <input type="file" className="form-control" placeholder='author'/>
-                </div> */}
+                    <input 
+                        type="file" 
+                        placeholder='banner image for post'
+                        className="form-control" 
+                        onChange={e=>handleChanges({image: e.target.files[0]})}
+                    />
+                </div>
                 <div className="mb-3">
                     <label className="form-label">content</label>
                     <CKEditor

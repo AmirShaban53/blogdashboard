@@ -29,7 +29,7 @@ export default function Home() {
           <h2>dashboard</h2>
           <div className="container-fluid">
             <div className="row ">
-              <div className="col-lg-3">
+              <div className="col-lg-3 mb-3">
                 <div className="card h-100 cursor shadow" onClick={()=>viewPosts()}>
                   <div className="card-body d-flex align-items-center justify-content-center">
                     <div>
@@ -50,7 +50,7 @@ export default function Home() {
                       <div className="col-md-7 p-4">
                         <h4 className="fs-3">Welcome to our control center!</h4>
                         <p>This is where authors come to create, write and post insightful blogs for our users at:</p>
-                        <a href='#' className="fw-bolder">www.localhost:3001</a>
+                        <a href='http://localhost:3001' target='_top' className="fw-bolder">www.localhost:3001</a>
                       </div>
                     <div className="col-md-5">
                       <img className="img-fluid" src="pf2.jpg" alt="" />

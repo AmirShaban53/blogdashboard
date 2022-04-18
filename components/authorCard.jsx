@@ -11,7 +11,7 @@ const AuthorCard = ({posts}) => {
                         key={author.id}>
                             <div className="col-6">
                                 {/* <AccountCircle className="fs-1 me-3 d-none d-sm-inline"/> */}
-                                <img className='img-fluid rounded-circle me-3 border border-secondary ' src={author.image} alt="" width='50px'/>
+                                <img className='img-fluid rounded-circle me-3 border border-secondary d-none d-sm-inline' src={author.image} alt="" width='50px'/>
                                 {author.name}
                             </div>
                             <div className="col-4 text-end">
