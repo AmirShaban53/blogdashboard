@@ -1,7 +1,7 @@
 import PostForm from "../../components/postForm";
 import Head from 'next/head';
 
-const compose = () => {
+const Compose = () => {
     return <>
     <Head>
       <title>dashboard | compose</title>
@@ -14,4 +14,4 @@ const compose = () => {
         </div>
     </>
 }
-export default compose;
+export default Compose;

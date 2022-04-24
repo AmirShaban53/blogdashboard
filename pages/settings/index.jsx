@@ -5,7 +5,7 @@ import Head from "next/head";
 import { useContext, useEffect } from "react";
 import { Context } from "../../AppContext";
 
-const settings = () => {
+const Settings = () => {
     const {user, getUserData, getPosts, getComments, posts} = useContext(Context);
 
     useEffect(() => {
@@ -46,4 +46,4 @@ const settings = () => {
     </>
     )
 }
-export default settings;
+export default Settings;

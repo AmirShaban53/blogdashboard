@@ -42,7 +42,6 @@ export default function Home() {
                         <p className='fs-3 fst-italic fw-lighter ms-2'>posts.</p>
                       </div>
                       <p className='text-center'>view all</p>
-
                     </div>
                   </div>
                 </div>

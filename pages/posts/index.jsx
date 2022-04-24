@@ -4,7 +4,7 @@ import {useEffect , useContext } from "react";
 import Head from 'next/head';
 
 
-const posts = () => {
+const Posts = () => {
     const {posts, getPosts} = useContext(Context);
     
     useEffect(() => {
@@ -26,4 +26,4 @@ const posts = () => {
     
     </>
 }
-export default posts;
+export default Posts;
