@@ -2,6 +2,7 @@ import classes from '../styles/dasboard.module.css'
 import CommentsList from '../components/commentsList'
 import { useRouter } from 'next/router'
 import { useContext, useEffect } from 'react';
+import Head from 'next/head';
 
 import { Context } from '../AppContext';
 
@@ -20,6 +21,9 @@ export default function Home() {
 
   return (
     <>
+    <Head>
+      <title>dashboard | home</title>
+    </Head>
       <main>
         <div className={classes.title}>
           <h1 className='display-1 fw-bolder cursor'>Hello,</h1>
@@ -50,7 +54,7 @@ export default function Home() {
                       <div className="col-md-7 p-4">
                         <h4 className="fs-3">Welcome to our control center!</h4>
                         <p>This is where authors come to create, write and post insightful blogs for our users at:</p>
-                        <a href='http://localhost:3001' target='_blank' className="fw-bolder">www.localhost:3001</a>
+                        <a href={process.env.NEXT_PUBLIC_FRONTEND_URL} target='_blank' className="fw-bolder">www.localhost:3001</a>
                       </div>
                     <div className="col-md-5">
                       <img className="img-fluid" src="pf2.jpg" alt="" />

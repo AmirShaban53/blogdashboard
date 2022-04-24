@@ -3,12 +3,15 @@ import { useState, useContext } from "react";
 import { Context } from "../AppContext";
 import {CKEditor} from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+
 import { useRouter } from "next/router";
 
 const PostForm = () => {
     const {alertMessage} = useContext(Context);
     const [post, setPost] = useState({});
     const router = useRouter();
+    
+    
     const handleChanges = (changes) => {
         setPost(prevState => {return{...prevState, ...changes}})
     }
@@ -40,6 +43,8 @@ const PostForm = () => {
             console.log(error);
         }
     }
+
+    
 
     return (
         <>
@@ -84,8 +89,8 @@ const PostForm = () => {
                     <label className="form-label">content</label>
                     <CKEditor
                         editor={ClassicEditor}
-                        data=""
-                        onChange={(e, editor)=>{handleChanges({content: editor.getData()})}}
+                        data={""}
+                        onChange={(e, editor) =>handleChanges({content: editor.getData()})}
                     />
                 </div>
                 <div className="my-4 text-end">
@@ -96,5 +101,8 @@ const PostForm = () => {
         </>
     )
 }
+
+
+
 
 export default PostForm;

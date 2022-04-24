@@ -1,5 +1,6 @@
 import AuthorCard from "../../components/authorCard";
 import classes from '../../styles/setting.module.css';
+import Head from "next/head";
 
 import { useContext, useEffect } from "react";
 import { Context } from "../../AppContext";
@@ -13,6 +14,9 @@ const settings = () => {
     }, []);
     return (
     <>
+        <Head>
+            <title>dashboard | settings</title>
+        </Head>
         <main>
             <div className="container">
                 <div className={`row mb-5 pb-5 g-0`}>
