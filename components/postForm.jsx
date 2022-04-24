@@ -6,12 +6,13 @@ import { Context } from "../AppContext";
 import { useRouter } from "next/router";
 
 const PostForm = () => {
-    const editorRef = useRef()
+    const editorRef = useRef();
+    const {CKEditor, ClassicEditor} = editorRef.current || {};
+    const [loaded, setLoaded] = useState(false);
     const {alertMessage} = useContext(Context);
     const [post, setPost] = useState({});
     const router = useRouter();
     
-    const { CKEditor, ClassicEditor } = editorRef.current || {}
     
     const handleChanges = (changes) => {
         setPost(prevState => {return{...prevState, ...changes}})
@@ -47,10 +48,12 @@ const PostForm = () => {
 
     useEffect(() => {
         editorRef.current = {
-            // CKEditor: require('@ckeditor/ckeditor5-react'), // depricated in v3
-            CKEditor: require('@ckeditor/ckeditor5-react').CKEditor ,// v3+
-            ClassicEditor: require('@ckeditor/ckeditor5-build-classic')
-          }
+            CKEditor : require('@ckeditor/ckeditor5-react').CKEditor,
+            ClassicEditor : require('@ckeditor/ckeditor5-build-classic'),
+
+        }
+            setLoaded(true);
+            // console.log({...ClassicEditor});
     }, []);
 
     return (
@@ -94,11 +97,11 @@ const PostForm = () => {
                 </div>
                 <div className="mb-3">
                     <label className="form-label">content</label>
-                    <CKEditor
+                    {loaded && <CKEditor
                         editor={ClassicEditor}
-                        data={""}
+                        data='<p>Hello from CKEditor 5!</p>'
                         onChange={(e, editor) =>handleChanges({content: editor.getData()})}
-                    />
+                    />}
                 </div>
                 <div className="my-4 text-end">
                     <button className='btn btn-reject mx-2 text-muted'>cancel</button>
