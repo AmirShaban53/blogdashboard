@@ -1,8 +1,5 @@
-import { AccountCircle } from "@material-ui/icons";
-import { useEffect, useState } from "react";
-const AuthorCard = ({posts}) => {
+const AuthorCard = () => {
     
-
     return (
         <div className=" rounded-3  p-3 mb-4 border border-secondary shadow">
                 {authors.map(author=>{

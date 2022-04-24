@@ -34,7 +34,7 @@ const PostCard = ({id,title, description, image_URL}) => {
                 </p>
                 <p>{description}</p>
                 <div>
-                <a href={`${fURL}/posts/${id}`} target='_blank' className="btn fw-bold">read more</a>
+                <a href={`${fURL}/posts/${id}`} rel="noreferrer" target='_blank' className="btn fw-bold">read more</a>
                 <button
                     className="btn btn-danger"
                     onClick={()=>handleDelete()}
