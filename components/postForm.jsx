@@ -1,16 +1,17 @@
 import axios  from "axios";
-import { useState, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import { Context } from "../AppContext";
-import {CKEditor} from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-
+// import {CKEditor} from "@ckeditor/ckeditor5-react";
+// import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { useRouter } from "next/router";
 
 const PostForm = () => {
+    const editorRef = useRef()
     const {alertMessage} = useContext(Context);
     const [post, setPost] = useState({});
     const router = useRouter();
     
+    const { CKEditor, ClassicEditor } = editorRef.current || {}
     
     const handleChanges = (changes) => {
         setPost(prevState => {return{...prevState, ...changes}})
@@ -44,7 +45,13 @@ const PostForm = () => {
         }
     }
 
-    
+    useEffect(() => {
+        editorRef.current = {
+            // CKEditor: require('@ckeditor/ckeditor5-react'), // depricated in v3
+            CKEditor: require('@ckeditor/ckeditor5-react').CKEditor ,// v3+
+            ClassicEditor: require('@ckeditor/ckeditor5-build-classic')
+          }
+    }, []);
 
     return (
         <>
