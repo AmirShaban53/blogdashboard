@@ -24,7 +24,7 @@ const PostCard = ({id,title, description, image_URL}) => {
         <div className='card shadow-sm my-4'>
             <div className='position-relative'>
                 <div className="post-image">
-                    <img className="card-img-top" src={`${URL}/${image_URL}`} alt="" layout='fill'/>
+                    <img className="card-img-top" src={image_URL} alt="" layout='fill'/>
                 </div>
             <div className="date bg-dark text-light position-absolute px-1 bottom-0 end-0">20/20/2222</div>
             </div>
