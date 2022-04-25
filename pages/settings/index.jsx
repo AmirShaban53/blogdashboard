@@ -4,6 +4,7 @@ import Head from "next/head";
 
 import { useContext, useEffect } from "react";
 import { Context } from "../../AppContext";
+import Image from 'next/image';
 
 const Settings = () => {
     const {user, getUserData, getPosts, getComments, posts} = useContext(Context);
@@ -21,7 +22,7 @@ const Settings = () => {
             <div className="container">
                 <div className={`row mb-5 pb-5 g-0`}>
                     <div className={`col-sm-4 text-dark`}>
-                        <img className='img-fluid rounded-3' src="/user.jpg" alt="" />
+                        <Image className='img-fluid rounded-3' src="/user.jpg" width="3" height="3" layout="responsive"/>
                         <h4 className='d-block d-sm-none'>{user.username}</h4>
                     </div>
                     <div className={`col-sm-8 position-relative d-none d-sm-inline`}>

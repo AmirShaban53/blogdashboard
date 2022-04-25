@@ -1,5 +1,5 @@
 .navbar{
-    background: #111;
+    background: linear-gradient(rgb(1, 90, 71), rgb(29, 47, 44));
     color: #fff;
     flex-basis: 20%;
 }
