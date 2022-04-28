@@ -53,10 +53,10 @@ export default function Home() {
                       <div className="col-md-7 p-4">
                         <h4 className="fs-3">Welcome, am Naomi Garryson!</h4>
                         <p>This is where authors come to create, write and post insightful blogs for our users at:</p>
-                        <a href={process.env.NEXT_PUBLIC_FRONTEND_URL} rel="noreferrer" target='_blank' className="fw-bolder">www.naomi.com</a>
+                        <a href={process.env.NEXT_PUBLIC_FRONTEND_URL} rel="noreferrer" target='_blank' className="fw-bolder">www.naomiblog.com</a>
                       </div>
                     <div className="col-md-5">
-                      <img className="img-fluid" src="pf2.jpg" alt="" />
+                      <img className="img-fluid" src="naomi.jpg" alt="" />
                     </div>
                     </div>
                   </div>

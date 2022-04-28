@@ -29,17 +29,14 @@ const PostCard = ({id,title, description, image_URL}) => {
             <div className="date bg-dark text-light position-absolute px-1 bottom-0 end-0">20/20/2222</div>
             </div>
             <div className="card-body">
-                <p className="card-title fw-bolder fs-3">
-                    {title}
-                </p>
+                <p className="card-title fw-bolder fs-3">{title}</p>
                 <p>{description}</p>
                 <div>
-                <a href={`${fURL}/posts/${id}`} rel="noreferrer" target='_blank' className="btn fw-bold">read more</a>
-                <button
-                    className="btn btn-danger"
-                    onClick={()=>handleDelete()}
-                >delete</button>
-
+                    <a href={`${fURL}/posts/${id}`} rel="noreferrer" target='_blank' className="btn fw-bold">read more</a>
+                    <button
+                        className="btn btn-danger"
+                        onClick={()=>handleDelete()}
+                    >delete</button>
                 </div>
             </div>
         </div>
