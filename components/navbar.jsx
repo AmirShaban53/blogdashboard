@@ -17,7 +17,7 @@ const Navbar = () => {
         <div className={classes.container}>
             <div className="nav-brand p-3">
                 <Link href='/'>
-                    <h1>N<span className='d-none d-sm-inline'>AOMI</span></h1>
+                    <h1>MAC<span className='d-none d-sm-inline'> POST</span></h1>
                 </Link>
             </div>
             <div className='container-fluid p-0'>
