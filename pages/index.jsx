@@ -53,7 +53,7 @@ export default function Home() {
                       <div className="col-md-7 p-4">
                         <h4 className="fs-3">Welcome to MAC POST</h4>
                         <p>Transforming the future today.</p>
-                        <a href={process.env.NEXT_PUBLIC_FRONTEND_URL} rel="noreferrer" target='_blank' className="fw-bolder">www.metteafrica.vercel.app</a>
+                        <a href={process.env.NEXT_PUBLIC_FRONTEND_URL} rel="noreferrer" target='_blank' className="fw-bolder">www.macpost.vercel.app</a>
                       </div>
                     <div className="col-md-5">
                       <img className="img-fluid" src="logo.jpg" alt="" />
