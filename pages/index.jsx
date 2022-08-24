@@ -51,12 +51,12 @@ export default function Home() {
                   <div className="container p-0">
                     <div className="row">
                       <div className="col-md-7 p-4">
-                        <h4 className="fs-3">Welcome, am Naomi Garryson!</h4>
-                        <p>This is where authors come to create, write and post insightful blogs for our users at:</p>
-                        <a href={process.env.NEXT_PUBLIC_FRONTEND_URL} rel="noreferrer" target='_blank' className="fw-bolder">www.naomiblog.com</a>
+                        <h4 className="fs-3">Welcome to MAC POST</h4>
+                        <p>Transforming the future today.</p>
+                        <a href={process.env.NEXT_PUBLIC_FRONTEND_URL} rel="noreferrer" target='_blank' className="fw-bolder">www.metteafrica.vercel.app</a>
                       </div>
                     <div className="col-md-5">
-                      <img className="img-fluid" src="naomi.jpg" alt="" />
+                      <img className="img-fluid" src="logo.jpg" alt="" />
                     </div>
                     </div>
                   </div>

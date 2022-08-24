@@ -55,7 +55,7 @@ const Navbar = () => {
                             </div>
                         </Link>
                     </li>
-                    <li 
+                    {/* <li 
                         className={classes.navItem}
                         onClick={(e)=>navIndicator(e)}
                     >
@@ -65,7 +65,7 @@ const Navbar = () => {
                                 <span className='d-none d-sm-inline'>settings</span>
                             </div>
                         </Link>
-                    </li>
+                    </li> */}
                     <div className={`${classes.indicator}`} style={style}></div>
                 </ul>
             </div>
